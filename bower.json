@@ -1,6 +1,9 @@
 {
   "name": "minitypeahead",
-  "main": "minitypeahead.js",
+  "main": [
+    "minitypeahead.js",
+    "latinize.js"
+  ],
   "description": "A typeahead tool, but really stripped down.. It's made as easy as possible.. Needs jQuery",
   "dependencies": {
     "jquery": "*"

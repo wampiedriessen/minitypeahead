@@ -1,4 +1,3 @@
-// minitypeahead needs latinize!!! :O
 $.fn.extend({
 minitypeahead: function(settings) {
 	self = this;
