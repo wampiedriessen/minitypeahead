@@ -1,0 +1,16 @@
+{
+  "name": "minitypeahead",
+  "main": "minitypeahead.js",
+  "description": "A typeahead tool, but really stripped down.. It's made as easy as possible.. Needs jQuery",
+  "moduleType": [],
+  "keywords": [
+    "typeahead",
+    "input",
+    "jquery"
+  ],
+  "authors": [
+    "Wampie Driessen <wampiedriessen@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": ""
+}
