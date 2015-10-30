@@ -2,6 +2,9 @@
   "name": "minitypeahead",
   "main": "minitypeahead.js",
   "description": "A typeahead tool, but really stripped down.. It's made as easy as possible.. Needs jQuery",
+  "dependencies": {
+    "jquery": "*"
+  },
   "moduleType": [],
   "keywords": [
     "typeahead",
@@ -12,5 +15,12 @@
     "Wampie Driessen <wampiedriessen@gmail.com>"
   ],
   "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "homepage": ""
 }
