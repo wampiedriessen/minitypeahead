@@ -12,6 +12,8 @@ $.fn.extend {
 
 			query = $(event.target).val().toLowerCase()
 
+			console.log query
+
 			if query is "" and notfound?
 				notfound.call event.target 
 
@@ -50,6 +52,4 @@ $.fn.extend {
 		@keyup filter
 		obj = {target: @}
 		filter obj
-
-
 }
