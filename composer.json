@@ -1,7 +1,7 @@
 {
     "name": "wampiedriessen/minitypeahead",
     "license": "MIT",
-    "type": "package",
+    "type": "component",
     "require": {
         "robloach/component-installer": "*",
         "components/jquery": "^2.1"
