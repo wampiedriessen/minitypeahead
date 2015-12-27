@@ -1,6 +1,7 @@
 {
     "name": "wampiedriessen/minitypeahead",
-    "license": "MIT",
+    "description": "A small typeahead library",
+    "license": "Apache-2.0",
     "type": "component",
     "require": {
         "robloach/component-installer": "*",
@@ -10,9 +11,7 @@
         "component": {
             "scripts": [
                 "dist/minitypeahead.js"
-            ],
-            "styles": [],
-            "files": []
+            ]
         }
     }
 }
