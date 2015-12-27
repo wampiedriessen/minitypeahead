@@ -3,20 +3,21 @@
 	"version": "1.0.0",
 	"description": "A small and lightweight typeahead that is easily extendable",
 	"homepage": "https://bitbucket.org/wampiedriessen/minitypeahead/",
-	"main": "dist/minitypeahead.js",
+	"main": "dist/minitypeahead.min.js",
 	"repository":
 	{
 		"type": "git",
 		"url": "https://bitbucket.org/wampiedriessen/minitypeahead.git"
 	},
 	"dependencies": {
-		"jquery": "*"
+		"jquery": "*",
+		"latinize": "git@bitbucket.org:wampiedriessen/latinize.git"
 	},
 	"devDependencies": {
 		"coffee-script": ">=1.10.0",
 		"minifier": ">=0.7.1"
 	},
 	"scripts": {
-		"prepublish": "cat src/latinize.coffee src/minitypeahead.coffee | coffee -c -s > dist/minitypeahead.js; minify dist/minitypeahead.js"
+		"prepublish": "coffee -c -o dist/ src/minitypeahead.coffee; minify dist/minitypeahead.js"
 	}
 }
