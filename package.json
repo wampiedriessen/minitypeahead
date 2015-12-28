@@ -10,7 +10,8 @@
 		"url": "https://bitbucket.org/wampiedriessen/minitypeahead.git"
 	},
 	"dependencies": {
-		"jquery": "*"
+		"jquery": "*",
+		"latinize": "git@bitbucket.org:wampiedriessen/latinize.git"
 	},
 	"bundledDependencies": {
 		"latinize": "git@bitbucket.org:wampiedriessen/latinize.git"
