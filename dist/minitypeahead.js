@@ -12,15 +12,18 @@
         };
       })(this));
       filter = function(event) {
-        var dataset, keys, lowest_occurance, notfound, query, selected_obj, supermatch, target;
+        var dataset, keys, lowest_occurance, notfound, query, selected_obj, success, supermatch, target;
         dataset = $(event.target).data('dataset');
         keys = $(event.target).data('keys');
         target = $(event.target).data('target');
         notfound = $(event.target).data('notfound');
-        query = $(event.target).val().toLowerCase();
-        console.log(query);
-        if (query === "" && (notfound != null)) {
-          notfound.call(event.target);
+        success = $(event.target).data('success');
+        query = $(event.target).val().toLowerCase().latinize();
+        if (query.length < 2) {
+          if (notfound != null) {
+            notfound.call(event.target);
+          }
+          return;
         }
         supermatch = false;
         selected_obj = {};
@@ -28,29 +31,16 @@
         $.each(dataset, function(i, obj) {
           $.each(keys, function(j, key) {
             var occ;
-            occ === obj[key].toLowerCase().indexOf(query);
-            if (occ === !-1) {
+            occ = obj[key].toLowerCase().latinize().indexOf(query);
+            if (occ !== -1) {
               if (occ < lowest_occurance) {
                 selected_obj = obj;
                 lowest_occurance = occ;
               }
-              if (obj[key].toLowerCase() === query) {
+              if (obj[key].toLowerCase().latinize() === query) {
                 supermatch = true;
                 selected_obj = obj;
                 return false;
-              }
-            } else {
-              occ = obj[key].toLowerCase().latinize().indexOf(query);
-              if (occ === !-1) {
-                if (occ < lowest_occurance) {
-                  selected_obj = obj;
-                  lowest_occurance = occ;
-                }
-                if (obj[key].toLowerCase() === query) {
-                  supermatch = true;
-                  selected_obj = obj;
-                  return false;
-                }
               }
             }
           });
@@ -58,8 +48,8 @@
             return false;
           }
         });
-        if ((typeof success !== "undefined" && success !== null) && !$.isEmptyObject(selected_obj)) {
-          return success.call(event.target, selected_ob);
+        if ((success != null) && !$.isEmptyObject(selected_obj)) {
+          return success.call(event.target, selected_obj);
         } else if (notfound != null) {
           return notfound.call(event.target);
         }

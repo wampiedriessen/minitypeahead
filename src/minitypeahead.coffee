@@ -9,13 +9,14 @@ $.fn.extend {
 			keys = $(event.target).data 'keys'
 			target = $(event.target).data 'target'
 			notfound = $(event.target).data 'notfound'
+			success = $(event.target).data 'success'
 
-			query = $(event.target).val().toLowerCase()
+			query = $(event.target).val().toLowerCase().latinize()
 
-			console.log query
-
-			if query is "" and notfound?
-				notfound.call event.target 
+			if query.length < 2
+				if notfound?
+					notfound.call event.target 
+				return
 
 			supermatch = false
 			selected_obj = {}
@@ -23,29 +24,19 @@ $.fn.extend {
 
 			$.each dataset, (i, obj) ->
 				$.each keys, (j, key) ->
-					occ == obj[key].toLowerCase().indexOf query
-					if occ is not -1
+					occ = obj[key].toLowerCase().latinize().indexOf query
+					if occ isnt -1
 						if occ < lowest_occurance
 							selected_obj = obj
 							lowest_occurance = occ
-						if obj[key].toLowerCase() is query
+						if obj[key].toLowerCase().latinize() is query
 							supermatch = true
 							selected_obj = obj
 							return false
-					else
-						occ = obj[key].toLowerCase().latinize().indexOf query
-						if occ is not -1
-							if occ < lowest_occurance
-								selected_obj = obj
-								lowest_occurance = occ
-							if obj[key].toLowerCase() is query
-								supermatch = true
-								selected_obj = obj
-								return false
 				return false if supermatch
 
 			if success? and not $.isEmptyObject selected_obj
-				success.call event.target, selected_ob
+				success.call event.target, selected_obj
 			else if notfound?
 				notfound.call event.target
 
