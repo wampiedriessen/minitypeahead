@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "A small and lightweight typeahead that is easily extendable",
 	"homepage": "https://bitbucket.org/wampiedriessen/minitypeahead/",
-	"main": "dist/bundle.js",
+	"main": "lib/bundle.min.js",
 	"repository":
 	{
 		"type": "git",
