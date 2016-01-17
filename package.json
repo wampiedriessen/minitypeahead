@@ -1,6 +1,6 @@
 {
 	"name": "minitypeahead",
-	"version": "2.0.0",
+	"version": "2.0.2",
 	"description": "A small and lightweight typeahead that is easily extendable",
 	"homepage": "https://github.com/wampiedriessen/minitypeahead/",
 	"main": "lib/bundle.min.js",
