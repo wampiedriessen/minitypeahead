@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Remove any potentially added assets from staged commits
+# so we don't muddle up our changesets
+rm lib/*
+
+npm run-script prepublish
+
+git add lib
