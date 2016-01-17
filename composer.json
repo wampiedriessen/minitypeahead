@@ -10,7 +10,7 @@
     "extra": {
         "component": {
             "scripts": [
-                "dist/minitypeahead.js"
+                "lib/bundle.js"
             ]
         }
     }
