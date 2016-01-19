@@ -11,10 +11,10 @@
 	},
 	"dependencies": {
 		"jquery": "*",
-		"latinize": "https://github.com/wampiedriessen/latinize.git"
+		"latinize": "git://github.com/wampiedriessen/latinize.git"
 	},
 	"bundledDependencies": {
-		"latinize": "https://github.com/wampiedriessen/latinize.git"
+		"latinize": "git://github.com/wampiedriessen/latinize.git"
 	},
 	"devDependencies": {
 		"coffee-script": ">=1.10.0"
