@@ -6,9 +6,9 @@ $.fn.extend {
 				@data key, value
 			return
 
-		master_array = {}
+		master_array = []
 		$.each settings.keys, (i, keyname) ->
-			master_array[keyname] = {}
+			master_array[keyname] = []
 			$.each settings.dataset, (j, object) ->
 				pre_key = object[keyname]
 					.toLowerCase()
@@ -19,14 +19,16 @@ $.fn.extend {
 						key = str.substring 0, index
 						if not master_array[keyname][key]?
 							master_array[keyname][key] = []
-						master_array[keyname][key].push object
+						if $.inArray(object, master_array[keyname][key]) == -1
+							master_array[keyname][key].push object
 					return
 				str = pre_key.join(" ");
-				for index in [pre_key[0].length..str.length]
+				for index in [(pre_key[0].length+1)..str.length]
 					key = str.substring 0, index
 					if not master_array[keyname][key]?
 						master_array[keyname][key] = []
-					master_array[keyname][key].push object
+					if $.inArray(object, master_array[keyname][key]) == -1
+						master_array[keyname][key].push object
 				return
 			return
 
