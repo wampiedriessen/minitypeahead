@@ -1,6 +1,6 @@
 {
 	"name": "minitypeahead",
-	"version": "2.0.6",
+	"version": "2.1.0",
 	"description": "A small and lightweight typeahead that is easily extendable",
 	"homepage": "https://github.com/wampiedriessen/minitypeahead/",
 	"main": "lib/bundle.js",
@@ -11,15 +11,16 @@
 	},
 	"dependencies": {
 		"jquery": "*",
-		"latinize": "git://github.com/wampiedriessen/latinize.git"
+		"latinize": "git://github.com/wampiedriessen/latinize.git",
+		"in-publish": "~2.0.0"
 	},
-	"bundledDependencies": {
-		"latinize": "git://github.com/wampiedriessen/latinize.git"
-	},
+	"bundledDependencies": [
+		"latinize"
+	],
 	"devDependencies": {
 		"coffee-script": ">=1.10.0"
 	},
 	"scripts": {
-		"prepublish": "cake build; cat node_modules/latinize/dist/latinize.js lib/minitypeahead.js > lib/bundle.js"
+		"prepublish": "in-publish && cake build && (cat node_modules/latinize/dist/latinize.js lib/minitypeahead.js > lib/bundle.js) || not-in-publish"
 	}
 }
